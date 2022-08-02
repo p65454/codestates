@@ -21,7 +21,7 @@ Assignment Requirement
 ** 대소문자를 정확히 구분해서 작성해 주세요. **
 """
 
-ADD_TO_STAGING_AREA = "git add ."
+ADD_TO_STAGING_AREA = "git add ." 
 
 CHECK_AREA_STATEMENT = "git status"
 
