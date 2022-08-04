@@ -4,11 +4,24 @@ Part 2
 각 질문에서 명시한 요구사항을 충족하는 SQL 문을 작성합니다.
 """
 
-QUERY_1 = "주어진 스키마에 따라 Teacher table을 생성하는 쿼리를 작성합니다."
+QUERY_1 = """CREATE TABLE Teacher(
+id        INTEGER PRIMARY KEY , 
+name      VARCHAR(30),
+subject   VARCHAR(10) NOT NULL,
+salary    INTEGER
+);
+"""
   
-QUERY_2 = "주어진 스키마에 따라 Student table을 생성하는 쿼리를 작성합니다.  "
+QUERY_2 = """CREATE TABLE Student(
+    teacher_id    INTEGER NOT NULL,
+    student_id    CHAR(4) NOT NULL,
+    age           INTEGER NOT NULL,
+    PRIMARY KEY(teacher_id, student_id),
+    FOREIGN KEY(teacher_id) REFERENCES Teacher(id)
+);
+"""
  
-BLANK = "QUERT_3_1~7의 BLANK 부분에 들어갔을 때 Teacher 테이블에 데이터를 넣을 수 있는 문장을 작성합니다."
+BLANK = "INSERT INTO Teacher(name,subject,salary)"
 
 #밑의 코드는 변경하지 않습니다.
 QUERY_3_1 = f"{BLANK} VALUES ('Spongebob', 'Math', 3500)"
@@ -29,7 +42,14 @@ QUERY_4_6 = "INSERT INTO Student VALUES(2, 'D102', 73);"
 QUERY_4_7 = "INSERT INTO Student VALUES(2, 'D103', 73);"
 
 #Teaher 테이블에 Insert가 잘 되어있지 않다면, 해당 쿼리도 틀릴 수 있습니다
-QUERY_4 = "Urclass의 과제 설명에 제공된 이미지와 같은 결과값을 출력하는 쿼리를 작성합니다."
+QUERY_4 = """SELECT name, subject, salary, (
+CASE
+	WHEN salary < 3000 THEN 'Low'
+	WHEN salary >=4000 THEN 'High'
+	ELSE 'Mid'
+END
+)AS '월급 그룹' FROM Teacher;"""
+
 
 #Teacher 테이블에 Insert 가 잘 되어있지 않다면, 해당 쿼리도 틀릴 수 있습니다
-QUERY_6 = "Teacher 테이블을 삭제하는 쿼리를 생성합니다."
+QUERY_6 = "DROP TABLE Teacher"

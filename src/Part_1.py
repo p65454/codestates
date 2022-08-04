@@ -4,12 +4,20 @@ Part 1
 Chinook 데이터베이스를 이용하여 각 질문에서 명시한 요구사항을 충족하는 SQL 문을 작성합니다.
 """
 
-QUERY_1 = "1번문제의 답이 되는 SQL 쿼리문을 작성해주세요"
+QUERY_1 = "SELECT Customerid, UPPER(City)||' '||UPPER(Country) AS CityCountry FROM customers"
 
-QUERY_2 = "2번문제의 답이 되는 SQL 쿼리문을 작성해주세요"
+QUERY_2 = "SELECT LOWER(SUBSTRING(FirstName,1,4)) || LOWER(SUBSTRING(LastName,1,2)) AS Nickname FROM customers"
 
-QUERY_3 = "3번문제의 답이 되는 SQL 쿼리문을 작성해주세요"
+QUERY_3 = "SELECT EmployeeId FROM employees WHERE (DATE('2020-01-01') - HireDate) > 7 ORDER BY LastName"
 
-QUERY_4 = "4번문제의 답이 되는 SQL 쿼리문을 작성해주세요"
+QUERY_4 = """\
+SELECT FirstName || LastName || InvoiceId AS OrderNo
+FROM invoices JOIN customers ON customers.CustomerId = invoices.CustomerId
+ORDER BY FirstName, LastName, InvoiceId;"""
 
-QUERY_5 = "5번문제의 답이 되는 SQL 쿼리문을 작성해주세요"
+QUERY_5 = """ SELECT Name From tracks 
+WHERE AlbumId IN (
+	SELECT AlbumId FROM albums
+	WHERE Title LIKE 'Unplugged' OR Title LIKE 'Outbreak'
+);
+"""
