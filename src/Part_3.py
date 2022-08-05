@@ -11,6 +11,7 @@ Part 3
 
 """
 import os
+from re import A
 import sqlite3
 
 DB_FILENAME = 'DB_API.db'
@@ -90,5 +91,18 @@ Part 3 은 딕셔너리와 리스트가 결합된 입력을 예시로 합니다.
 
 """
 
+COL = list(json_data["DATA"][0].keys())
+conn = sqlite3.connect('DB_API.db')
+cur = conn.cursor()
+cur.execute("DROP TABLE IF EXISTS Albums_Part3;")
+cur.execute(f"""CREATE TABLE Albums_Part3(
+	{COL[0]} INTEGER NOT NULL PRIMARY KEY,
+	{COL[1]} NVARCHAR(160),
+	{COL[2]} INTEGER)""")
 
-pass
+cur.executemany("INSERT INTO Albums_Part3 VALUES (?,?,?)", list(map(lambda x: list(x.values()),json_data["DATA"])))
+conn.commit()
+cur.execute("SELECT * FROM Albums_Part3")
+conn.commit()
+print(cur.fetchall())
+conn.close()
