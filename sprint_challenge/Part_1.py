@@ -6,22 +6,11 @@ Part 1.1
 
 
 
-CREATE_USER_TABLE = """CREATE TABLE User (
-                        id INTEGER PRIMARY KEY,
-                        username VARCHAR,
-                        password VARCHAR);"""
+CREATE_USER_TABLE = "User 테이블을 생성하는 SQL 쿼리문을 작성합니다."
 
-CREATE_PRODUCT_TABLE = """CREATE TABLE Product (
-                            id INTEGER PRIMARY KEY,
-                            product_name VARCHAR,
-                            product_price INT);"""
+CREATE_PRODUCT_TABLE = "Product 테이블을 생성하는 SQL 쿼리문을 작성합니다."
 
-CREATE_USER_PRODUCT_TABLE = """CREATE TABLE User_Product (
-                                    id INTEGER PRIMARY KEY,
-                                    user_id INT,
-                                    product_id INT,
-                                    FOREIGN KEY(user_id) REFERENCES User(id),
-                                    FOREIGN KEY(product_id) REFERENCES Product(id));"""
+CREATE_USER_PRODUCT_TABLE = "User_Product 테이블을 생성하는 SQL 쿼리문을 작성합니다."
 
 """
 Part 1.2
