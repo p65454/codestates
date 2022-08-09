@@ -62,32 +62,32 @@ class PythonBooleans(TestCase):
         """
         가장 기본적으로 True 를 먼저 두고 연습하겠습니다.
         """
-        assert "빈칸을 채워주세요" is self.truth_function(True)
+        assert True is self.truth_function(True)
 
     def test_about_false(self):
-        assert "빈칸을 채워주세요" is self.truth_function(False)
+        assert False is self.truth_function(False)
 
     def test_about_none(self):
         """
         파이썬에서 None 은 어떤 값인가요?
         """
-        assert "빈칸을 채워주세요" is self.truth_function(None)
+        assert False is self.truth_function(None)
 
     def test_about_zero(self):
-        assert "빈칸을 채워주세요" is self.truth_function(0)
+        assert False is self.truth_function(0)
 
     def test_about_empty_collections(self):
         """
         명시적인 값들뿐만 아니라 컬렉션 자료형 등
         불리안으로 표시할 수 있습니다!
         """
-        assert "빈칸을 채워주세요" is self.truth_function([])
-        assert "빈칸을 채워주세요" is self.truth_function(())
-        assert "빈칸을 채워주세요" is self.truth_function({})
-        assert "빈칸을 채워주세요" is self.truth_function(set())
+        assert False is self.truth_function([])
+        assert False is self.truth_function(())
+        assert False is self.truth_function({})
+        assert False is self.truth_function(set())
 
     def test_about_blank_strings(self):
-        assert "빈칸을 채워주세요" is self.truth_function("")
+        assert False is self.truth_function("")
 
     def test_about_others(self):
         """
@@ -97,12 +97,12 @@ class PythonBooleans(TestCase):
 
         이외에도 궁금하신 것들을 실험해보세요!
         """
-        assert "빈칸을 채워주세요" is self.truth_function(1)
-        assert "빈칸을 채워주세요" is self.truth_function([0])
-        assert "빈칸을 채워주세요" is self.truth_function((0,))
-        assert "빈칸을 채워주세요" is self.truth_function("파이썬도 뱀인가")
-        assert "빈칸을 채워주세요" is self.truth_function(' ')
-        assert "빈칸을 채워주세요" is self.truth_function('0')
+        assert True is self.truth_function(1)
+        assert True is self.truth_function([0])
+        assert True is self.truth_function((0,))
+        assert True is self.truth_function("파이썬도 뱀인가")
+        assert True is self.truth_function(' ')
+        assert True is self.truth_function('0')
 
 
 """
@@ -126,25 +126,25 @@ class PythonStrings(TestCase):
         무엇일까요?
         """
         string = "Hello world!"
-        assert "빈칸을 채워주세요" is isinstance(string, str)
+        assert True is isinstance(string, str)
 
     def test_about_single_quoted_strings(self):
         """
         파이썬에서는 ' 와 " 를 둘 다 사용할 수 있습니다
         """
         string = 'Hello world!'
-        assert "빈칸을 채워주세요" is isinstance(string, str)
+        assert True is isinstance(string, str)
 
     def test_about_triple_quote_strings(self):
         """
         지금 주석에서도 보실 수 있듯이 \""" 는 어떤 의미를 가질까요?
         """
         string = """Hello world!"""
-        assert "빈칸을 채워주세요" is isinstance(string, str)
+        assert True is isinstance(string, str)
 
     def test_about_triple_single_quotes(self):
         string = '''Hello world!'''
-        assert "빈칸을 채워주세요" is isinstance(string, str)
+        assert True is isinstance(string, str)
 
     def test_about_raw_strings(self):
         """
@@ -153,15 +153,15 @@ class PythonStrings(TestCase):
         일반 문자열과 어떤 차이를 지녔는지 알아보세요
         """
         string = r"Hello world!"
-        assert "빈칸을 채워주세요" is isinstance(string, str)
+        assert True is isinstance(string, str)
 
     def test_about_single_and_double_quotes_1(self):
         string = 'Hello, "world!"'
-        assert "빈칸을 채워주세요" == string
+        assert 'Hello, "world!"' == string
 
     def test_about_single_and_double_quotes_2(self):
         string = "Don't"
-        assert "빈칸을 채워주세요" == string
+        assert "Don\'t" == string
 
     def test_about_backslashes_1(self):
         """
@@ -169,7 +169,7 @@ class PythonStrings(TestCase):
         """
         a = "\"Don't\""
         b = '"Don\'t"'
-        assert "빈칸을 채워주세요" is (a == b)
+        assert True is (a == b)
 
     def test_about_backslashes_2(self):
         """
@@ -178,7 +178,7 @@ class PythonStrings(TestCase):
         처음에 생각했던 길이와 맞나요?
         """
         string = "Batman,\n\Gotham"
-        assert "빈칸을 채워주세요" == len(string)
+        assert 15 == len(string)
 
     def test_about_triple_quoted_strings_1(self):
         """
@@ -190,7 +190,7 @@ class PythonStrings(TestCase):
 Hello,
 world!
 """
-        assert "빈칸을 채워주세요" == len(string)
+        assert 15 == len(string)
 
     def test_about_triple_quoted_strings_2(self):
         """
@@ -200,11 +200,11 @@ world!
         """
         a = "Hello \"world\"."
         b = """Hello "world"."""
-        assert "빈칸을 채워주세요" is (a == b)
+        assert True is (a == b)
 
     def test_about_string_concatenation_1(self):
         string = "Hello, " + "world"
-        assert "빈칸을 채워주세요" == string
+        assert "Hello, world" == string
 
     def test_about_string_concatenation_2(self):
         """
@@ -213,20 +213,20 @@ world!
         파이썬의 문자열 concatenation 에 대해서 더 보겠습니다
         """
         string = "Hello" ", " "world"
-        assert "빈칸을 채워주세요" == string
+        assert "Hello, world" == string
 
     def test_about_plus_signs_1(self):
         hi = "Hello, "
         there = "world"
         hi += there
-        assert "빈칸을 채워주세요" == hi
+        assert "Hello, world" == hi
 
     def test_about_plus_signs_2(self):
         original = "Hello, "
         hi = original
         there = "world"
         hi += there
-        assert "빈칸을 채워주세요" == original
+        assert "Hello, world" == original
 
     def test_about_escape_characters(self):
         """
@@ -238,9 +238,10 @@ world!
         이와 같은 다른 특수문자들도 한번 확인해보세요!
         """
         string = "\n"
-        assert "빈칸을 채워주세요" == string
-        assert "빈칸을 채워주세요" == string
-        assert "빈칸을 채워주세요" == len(string)
+        assert "\n" == string
+        assert """
+        """ == string
+        assert 1 == len(string)
 
 
 """
@@ -262,8 +263,8 @@ class PythonLists(TestCase):
         리스트의 타입을 확인하면 나오는 문자열을 이용해 통과해보세요!
         """
         empty_list = list()
-        assert "빈칸을 채워주세요" == str(type(empty_list))
-        assert "빈칸을 채워주세요" == len(empty_list)
+        assert "<class 'list'>" == str(type(empty_list))
+        assert 0 == len(empty_list)
 
     def test_about_list_literals(self):
         """
@@ -273,16 +274,16 @@ class PythonLists(TestCase):
         이외에 어떤 방법을 추가할 수 있는지 알아봅니다.
         """
         nums = list()
-        assert "빈칸을 채워주세요" == nums
+        assert [] == nums
 
         nums[0:] = [1]
-        assert "빈칸을 채워주세요" == nums
+        assert [1] == nums
 
         nums[1:] = [2]
-        assert "빈칸을 채워주세요" == nums
+        assert [1,2] == nums
 
         nums.append(333)
-        assert "빈칸을 채워주세요" == nums
+        assert [1,2,333] == nums
 
     def test_about_list_elements(self):
         """
@@ -295,10 +296,10 @@ class PythonLists(TestCase):
         """
         story = ['once', 'upon', 'a', 'time']
 
-        assert "빈칸을 채워주세요" == story[0]
-        assert "빈칸을 채워주세요" == story[3]
-        assert "빈칸을 채워주세요" == story[-1]
-        assert "빈칸을 채워주세요" == story[-3]
+        assert "once" == story[0]
+        assert "time" == story[3]
+        assert "time" == story[-1]
+        assert "upon" == story[-3]
 
     def test_about_slicing_lists_1(self):
         """
@@ -309,19 +310,19 @@ class PythonLists(TestCase):
         """
         story = ['once', 'upon', 'a', 'time']
 
-        assert "빈칸을 채워주세요" == story[0:1]
-        assert "빈칸을 채워주세요" == story[0:2]
-        assert "빈칸을 채워주세요" == story[2:2]
-        assert "빈칸을 채워주세요" == story[2:20]
-        assert "빈칸을 채워주세요" == story[4:0]
-        assert "빈칸을 채워주세요" == story[4:100]
-        assert "빈칸을 채워주세요" == story[5:0]
+        assert ['once'] == story[0:1]
+        assert ['once','upon'] == story[0:2]
+        assert [] == story[2:2]
+        assert ['a','time'] == story[2:20]
+        assert [] == story[4:0]
+        assert [] == story[4:100]
+        assert []== story[5:0]
 
     def test_about_slicing_lists_2(self):
         story = ['once', 'upon', 'a', 'time']
 
-        assert "빈칸을 채워주세요" == story[2:]
-        assert "빈칸을 채워주세요" == story[:2]
+        assert ['a', 'time'] == story[2:]
+        assert ['once', 'upon'] == story[:2]
 
     def test_about_list_and_ranges_1(self):
         """
@@ -333,9 +334,9 @@ class PythonLists(TestCase):
         range 를 활용해 리스트를 만들었을 때 어떤 항목들이 들어가나요?
         """
         assert range == type(range(5))
-        assert "빈칸을 채워주세요" is ([1, 2, 3, 4, 5] == range(1, 6))
-        assert "빈칸을 채워주세요" == list(range(5))
-        assert "빈칸을 채워주세요" == list(range(5, 9))
+        assert False is ([1, 2, 3, 4, 5] == range(1, 6))
+        assert [0, 1, 2, 3, 4] == list(range(5))
+        assert [5, 6, 7, 8] == list(range(5, 9))
 
     def test_about_list_and_ranges_2(self):
         """
@@ -345,11 +346,11 @@ class PythonLists(TestCase):
 
         예를 들어 `list(range(6, 2, -3))` 은 어떤 결과를 보여주나요?
         """
-        assert "빈칸을 채워주세요" == list(range(5, 3, -1))
-        assert "빈칸을 채워주세요" == list(range(0, 8, 2))
-        assert "빈칸을 채워주세요" == list(range(1, 8, 3))
-        assert "빈칸을 채워주세요" == list(range(5, -7, -4))
-        assert "빈칸을 채워주세요" == list(range(5, -8, -4))
+        assert [5,4] == list(range(5, 3, -1))
+        assert [0,2,4,6] == list(range(0, 8, 2))
+        assert [1,4,7] == list(range(1, 8, 3))
+        assert [5,1,-3] == list(range(5, -7, -4))
+        assert [5,1,-3,-7] == list(range(5, -8, -4))
 
     def test_about_insert(self):
         """
@@ -359,10 +360,10 @@ class PythonLists(TestCase):
         """
         gandalf=['you', 'shall', 'pass']
         gandalf.insert(2, 'not')
-        assert "빈칸을 채워주세요" == gandalf
+        assert ['you', 'shall', 'not', 'pass'] == gandalf
 
         gandalf.insert(0, 'Hey')
-        assert "빈칸을 채워주세요" == gandalf
+        assert ['Hey', 'you', 'shall', 'not', 'pass'] == gandalf
 
     def test_about_pop(self):
         """
@@ -373,15 +374,15 @@ class PythonLists(TestCase):
         stack=[10, 20, 30, 40]
         stack.append('last')
 
-        assert "빈칸을 채워주세요" == stack
+        assert [10, 20, 30, 40, 'last'] == stack
 
         popped_value=stack.pop()
-        assert "빈칸을 채워주세요" == popped_value
-        assert "빈칸을 채워주세요" == stack
+        assert 'last' == popped_value
+        assert [10, 20, 30, 40] == stack
 
         popped_value=stack.pop(1)
-        assert "빈칸을 채워주세요" == popped_value
-        assert "빈칸을 채워주세요" == stack
+        assert 20 == popped_value
+        assert [10, 30, 40] == stack
 
 
 """
@@ -404,16 +405,16 @@ class PythonDictionaries(TestCase):
         딕셔너리의 타입은 뭔가요?
         """
         empty_dict=dict()
-        assert "빈칸을 채워주세요" == str(type(empty_dict))
-        assert "빈칸을 채워주세요" == empty_dict
-        assert "빈칸을 채워주세요" == len(empty_dict)
+        assert "<class 'dict'>" == str(type(empty_dict))
+        assert {} == empty_dict
+        assert 0 == len(empty_dict)
 
     def test_about_dictionary_literals(self):
         empty_dict={}
-        assert "빈칸을 채워주세요" == type(empty_dict)
+        assert type(dict()) == type(empty_dict)
 
         cities={'france': 'paris', 'korea': 'seoul'}
-        assert "빈칸을 채워주세요" == len(cities)
+        assert 2 == len(cities)
 
     def test_about_accessing_dictionaries(self):
         """
@@ -422,8 +423,8 @@ class PythonDictionaries(TestCase):
         아래와 같이 접근하게 되면 어떤 값들을 확인할 수 있을까요?
         """
         cities={'france': 'paris', 'korea': 'seoul'}
-        assert "빈칸을 채워주세요" == cities['france']
-        assert "빈칸을 채워주세요" == cities['korea']
+        assert "paris" == cities['france']
+        assert "seoul" == cities['korea']
 
     def test_about_changing_dictionaries(self):
         """
@@ -436,7 +437,7 @@ class PythonDictionaries(TestCase):
         cities['france'] = 'lyon'
 
         expected = {'korea': 'seoul', 'france': "lyon"}
-        assert "빈칸을 채워주세요" == cities
+        assert expected == cities
 
     def test_about_dictionary_order(self):
         """
@@ -449,7 +450,7 @@ class PythonDictionaries(TestCase):
         dict1={'france': 'paris', 'korea': 'seoul'}
         dict2={'korea': 'seoul', 'france': 'paris'}
 
-        assert "빈칸을 채워주세요" is (dict1 == dict2)
+        assert True is (dict1 == dict2)
 
     def test_about_keys_and_values(self):
         """
@@ -460,9 +461,9 @@ class PythonDictionaries(TestCase):
         다른 메소드들은 어떤 것들이 있을까요?
         """
         cities={'france': 'paris', 'korea': 'seoul'}
-        assert "빈칸을 채워주세요" == len(cities.keys())
-        assert "빈칸을 채워주세요" == len(cities.values())
-        assert "빈칸을 채워주세요" is ('france' in cities.keys())
-        assert "빈칸을 채워주세요" is ('paris' in cities.values())
-        assert "빈칸을 채워주세요" is ('seoul' in cities.keys())
-        assert "빈칸을 채워주세요" is ('korea' in cities.values())
+        assert 2 == len(cities.keys())
+        assert 2 == len(cities.values())
+        assert True is ('france' in cities.keys())
+        assert True is ('paris' in cities.values())
+        assert False is ('seoul' in cities.keys())
+        assert False is ('korea' in cities.values())
