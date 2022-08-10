@@ -34,6 +34,8 @@ def get_page(page_url):
         - page: requests 을 통해 받은 페이지 (requests 에서 사용하는 response
         객체입니다).
     """
+    page = requests.get(page_url)
+    soup = BeautifulSoup(page.text, "html.parser")
 
 
     return soup, page
@@ -71,7 +73,10 @@ def get_avg_stars(reviews):
     get_avg_stars(reviews) #=> 6.5
     ------------------------------------------------
     """
-    avg = None
+    star = []
+    for review in reviews:
+        star.append(review.get('review_star'))
+    avg = sum(star)/len(star)
 
     return avg
 
@@ -94,8 +99,12 @@ def get_movie_code(movie_title):
         - 영화 아이디 번호: 네이버에서 지정한 영화의 아이디 번호가 담긴
         숫자(int) 입니다.
     """
+    
     search_url = f"{BASE_URL}/search/result.naver?query={movie_title}&section=all&ie=utf8"
     movie_code = None
+    soup, page = get_page(search_url)
+    link = soup.select('#old_content > ul.search_list_1 > li > p')
+    movie_code = int(link[0].contents[1].attrs['href'].split('='[1]))
 
     return movie_code
 
@@ -123,6 +132,14 @@ def get_reviews(movie_code, page_num=1):
     review_url = f"{BASE_URL}/point/af/list.naver?st=mcode&sword={movie_code}&target=after&page={page_num}"
     review_list = []
 
+    soup, page = get_page(review_url)
+    table = soup.tbody.find_all('td', class_='title')
+    for line in table:
+        review = {}
+        review['review_text'] = line.contents[-3].strip()
+        review['review_star'] = int(line.contents[3].em.text)
+        review_list.append(review)
+
     return review_list
 
 
@@ -141,6 +158,12 @@ def scrape_by_review_num(movie_title, review_num):
         형태여야 합니다.)
     """
     reviews = []
+
+    code = get_movie_code(movie_title)
+    pages = int(review_num//10) + 1
+    for i in range(pages):
+        reviews.extend(get_reviews(code, page_num=i+1))
+    reviews = reviews[:review_num]
 
     return reviews
 
@@ -161,5 +184,9 @@ def scrape_by_page_num(movie_title, page_num=10):
         명시된 파이썬 딕셔너리 형태여야 합니다.)
     """
     reviews = []
+
+    code = get_movie_code(movie_title)
+    for i in range(page_num):
+        reviews.extend(get_reviews(code, page_num=i+1))
 
     return reviews
