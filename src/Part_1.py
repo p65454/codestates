@@ -1,7 +1,7 @@
 import requests
 import json
 
-API_KEY = 'API 키를 입력해주세요'
+API_KEY = '939f60e1bb31854f69d5e270b8965350'
 
 
 def get_city_data(city_name):
@@ -18,7 +18,10 @@ def get_city_data(city_name):
     """
 
     current_weather = None
-    
+    url = f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={API_KEY}'
+    weather_req = requests.get(url)
+    current_weather = json.loads(weather_req.text)
+
     return current_weather
 
 
@@ -36,6 +39,7 @@ def get_weather_description(json_data):
     """
 
     weather_description = None
+    weather_description = json_data["weather"][0]["description"]
 
     return weather_description
 
@@ -52,5 +56,6 @@ def get_minimum_temp(json_data):
     """
 
     temp_min = None
+    temp_min = round(json_data["main"]["temp_min"] - 273.15, 2)
 
     return temp_min
