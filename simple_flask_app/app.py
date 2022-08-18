@@ -40,8 +40,8 @@ def users():
         }
 
     NOTE: CSV 파일을 읽어온 뒤에 가장 첫 줄인 'username' 은 리스트에 담지 않습니다!  """
-    with open('users.csv') as csvfile:
-        #userlist = {[csv.reader(csvfile)]}
+    with open(app.config['USERS_CSV_FILE']) as csvfile:
+        
         user_csv = csv.reader(csvfile)
         userlist = {'users': [row[0] for row in user_csv][1:]}
         
@@ -75,7 +75,7 @@ def display_user(user_order):
         'patrick' 문자열을 돌려줍니다.
     """
     user_dic,_ = users()
-    username = user_dic['users'][int(user_order)-1]
+    username = user_dic["users"][int(user_order)-1]
 
     return username, 200
     
