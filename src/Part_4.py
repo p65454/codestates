@@ -29,5 +29,7 @@ Advanced Requirements
 """
 
 def part4(s):
-    ##### 소스코드를 작성해주세요 #####
-    pass # 지워주세요
+    s = list(set(s.split(' ')))
+    s.sort()
+    s = list(map(lambda x:x.lower() if x.isupper() else x.upper(),s))
+    return ' '.join(s)
