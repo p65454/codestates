@@ -24,3 +24,4 @@ def part1():
         y = i**2
         x.append(y)
     return x
+
