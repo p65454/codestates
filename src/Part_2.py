@@ -45,9 +45,9 @@ Bare Minimum Requirements
 """
 
 def part2_is_square_num(a):   
-    ##### 소스코드를 작성해주세요 #####
-    pass # 지워주세요
+    x = list(map(lambda i:i**2,a))
+    return x
 
 def part2_is_odd_num(a):   
-    ##### 소스코드를 작성해주세요 #####
-    pass # 지워주세요
+    x = list(map(lambda i:'짝수' if i % 2 == 0 else '홀수', a))
+    return x

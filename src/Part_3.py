@@ -28,5 +28,6 @@ Bare Minimum Requirements
 """
 
 def part3(s):
-    ##### 소스코드를 작성해주세요 #####
-    pass # 지워주세요
+    s = list(set(s.split(' ')))
+    s.sort()
+    return ' '.join(s)

@@ -19,5 +19,8 @@ Bare Minimum Requirements
 """
 
 def part1():
-    ##### 소스코드를 작성해주세요 #####
-    pass # 지워주세요
+    x = []
+    for i in range(1,11):
+        y = i**2
+        x.append(y)
+    return x
