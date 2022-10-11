@@ -12,4 +12,17 @@ Advanced Requirements
 """
 
 def part3(N):
-    pass
+    if N<=0:
+        raise ValueError
+    result = []
+    for i in range(1,N):
+        if i == 1:
+            continue
+        for j in range(2,i):
+            if i%j==0:
+                break
+        else:
+            result.append(i)
+    return len(result)
+
+#print(part3(4))

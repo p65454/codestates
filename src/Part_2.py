@@ -19,5 +19,9 @@ Bare Minimum Requirements
 """
 
 def part2(num):
-    ##### 소스코드를 작성해주세요 #####
-    pass # 문제를 푸실 때 pass를 지워주세요
+    max = num[0]
+    for i in num:
+        if i > max:
+            max = i
+    return max
+
