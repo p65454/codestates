@@ -61,45 +61,62 @@ class Book:
         self.librarian = librarian
 
 
-class Librarian:
-    def __init__():
+class Librarian(Person):
+    def __init__(self, name, age):
         ##### 소스코드를 작성해주세요 #####
-        pass # 문제를 푸실 때 pass를 지워주세요
+        super().__init__(name, age)
+        self.book_list = []
 
-    def add_book():   #새책을 받거나, 반납받는 함수
+    def add_book(self, book):   #새책을 받거나, 반납받는 함수
         ##### 소스코드를 작성해주세요 #####
-        pass # 문제를 푸실 때 pass를 지워주세요
+        self.book_list.append(book)
 
-    def remove_book():    #책을 빌려주는 함수
+    def remove_book(self, book):    #책을 빌려주는 함수
         """
         리스트에 해당하는 책이 없을때는 False를,
         있을 경우 삭제 후에 True를 리턴해주세요~!
         """
         ##### 소스코드를 작성해주세요 #####
-        pass # 문제를 푸실 때 pass를 지워주세요
+        if book in self.book_list:
+            self.book_list.remove(book)
+            return True
+        else :
+            return False
 
     def get_book_list(self):    #관리중인 책 목록을 반환하는 함수
         ##### 소스코드를 작성해주세요 #####
-        pass # 문제를 푸실 때 pass를 지워주세요
+        return self.book_list
 
 
-class User:
-    def __init__():
+class User(Person):
+    def __init__(self, name, age):
         ##### 소스코드를 작성해주세요 #####
-        pass # 문제를 푸실 때 pass를 지워주세요
+        super().__init__(name, age)
+        self.book_list = []
 
-    def borrow_book(): #책을 대출하는 함수
+    def borrow_book(self, book): #책을 대출하는 함수     -> 빈리스트에서 대출을하면 remove를 할수없지않나? 생각이 잘못된건가.. 다시 생각하고 공부하자
         ##### 소스코드를 작성해주세요 #####
-        pass # 문제를 푸실 때 pass를 지워주세요
+        if book in self.book_list:
+            try:
+                self.book_list.remove(book)
+            except ValueError:
+                return f'\'{book}\'은(는) 현재 대출중입니다.'
+        else:
+            return f'\'{book}\'은(는) 이 도서관에 없는 책입니다.'
 
-    def return_book(): #책을 반납하는 함수
+    def return_book(self, book): #책을 반납하는 함수
         """
         리스트에 해당하는 책이 없을때는 False를,
         있을 경우 삭제 후에 True를 리턴해주세요~!
         """
         ##### 소스코드를 작성해주세요 #####
-        pass # 문제를 푸실 때 pass를 지워주세요
+        if book in self.book_list:
+            self.book_list.append(book)            
+        else:
+            return f'\'{book}\'은(는) 이 도서관의 책이 아닙니다.'
 
-    def get_borrowed_list():    #빌린 책 목록을 반환하는 함수
+    def get_borrowed_list(self):    #빌린 책 목록을 반환하는 함수
         ##### 소스코드를 작성해주세요 #####
-        pass # 문제를 푸실 때 pass를 지워주세요
+        
+        return self.book_list
+ #
