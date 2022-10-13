@@ -30,8 +30,8 @@ def part1_q1():
 
 
 def part1_q1_answer():
-    time_complexity = ANSWER
-    reason = "이유를 작성해주세요"
+    time_complexity = CONSTANT
+    reason = "단순 덧셈연산 1번만 실행했기때문"
 
     return (time_complexity, reason)
 
@@ -44,8 +44,8 @@ def part1_q2(li):
 
 
 def part1_q2_answer():
-    time_complexity = ANSWER
-    reason = "이유를 작성해주세요"
+    time_complexity = LINEAR
+    reason = "li 길이만큼 연산했기때문"
 
     return (time_complexity, reason)
 
@@ -60,7 +60,7 @@ def part1_q3(li):
 
 
 def part1_q3_answer():
-    time_complexity = ANSWER
-    reason = "이유를 작성해주세요"
+    time_complexity = QUADRATIC
+    reason = "li * li 만큼 연산했기 때문"
 
     return (time_complexity, reason)

@@ -37,8 +37,8 @@ def part2_q1(li):
     
 
 def part2_q1_answer():
-    time_complexity = ANSWER
-    reason = "이유를 작성해주세요"
+    time_complexity = QUADRATIC
+    reason = "가장 긴 연산이 아래의 li*li연산이기때문"
 
     return (time_complexity, reason)
 
@@ -49,8 +49,8 @@ def part2_q2(li):
 
 
 def part2_q2_answer():
-    time_complexity = ANSWER
-    reason = "이유를 작성해주세요"
+    time_complexity = CONSTANT
+    reason = "break로 바로 탈출되면서 1번 연산 되었기 때문"
 
     return (time_complexity, reason)
 
@@ -65,7 +65,7 @@ def part2_q3(num):
 
 
 def part2_q3_answer():
-    time_complexity = ANSWER
-    reason = "이유를 작성해주세요"
+    time_complexity = LOGARITHMIC
+    reason = "반복문동안 cur이 거듭제곱되었고 그 횟수는 log(num)만큼이기 때문"
 
     return (time_complexity, reason)
