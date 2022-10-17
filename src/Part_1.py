@@ -12,6 +12,7 @@ Bare Minimum Requirements
 
 class Queue():
     def __init__(self):
+
         """
         # 문제 1.
         Queue의 생성자 함수를 구현해주세요.
@@ -19,7 +20,7 @@ class Queue():
         구현하시려는 로직에 맞게 해당 함수를 구현해주세요.
         아래 pass를 지워주시고 코드를 작성해주시면 됩니다. 
         """
-        pass
+        self.items = []
 
 
     def enqueue(self, item):
@@ -33,7 +34,7 @@ class Queue():
             반환값은 없습니다.
         아래 pass를 지워주시고 코드를 작성해주시면 됩니다. 
         """
-        pass
+        self.items.append(item)
 
 
     def dequeue(self):
@@ -48,7 +49,12 @@ class Queue():
             만약 삭제한 값이 없다면 None을 반환해주세요.
         아래 pass를 지워주시고 코드를 작성해주시면 됩니다. 
         """
-        pass
+        try:
+            result = self.items.pop(0)
+        except IndexError:
+            result = None
+        finally:
+            return result        
 
 
     def return_queue(self):
@@ -62,7 +68,7 @@ class Queue():
             queue내부에 있는 값을 리스트 형태로 반환해주세요.
         아래 pass를 지워주시고 코드를 작성해주시면 됩니다. 
         """
-        pass
+        return self.items
 
 
 class Stack():
@@ -74,7 +80,7 @@ class Stack():
         구현하시려는 로직에 맞게 해당 함수를 구현해주세요.
         아래 pass를 지워주시고 코드를 작성해주시면 됩니다. 
         """
-        pass
+        self.items = []
 
 
     def push(self, item):
@@ -88,7 +94,7 @@ class Stack():
             반환값은 없습니다.
         아래 pass를 지워주시고 코드를 작성해주시면 됩니다. 
         """
-        pass
+        self.items.append(item)
 
 
     def pop(self):
@@ -103,8 +109,12 @@ class Stack():
             만약 삭제한 값이 없다면 None을 반환해주세요.
         아래 pass를 지워주시고 코드를 작성해주시면 됩니다. 
         """
-        pass
-
+        try:
+            result = self.items.pop()
+        except IndexError:
+            result = None
+        finally:
+            return result
 
     def return_stack(self):
         """
@@ -117,6 +127,6 @@ class Stack():
             Stack내부에 있는 값을 리스트 형태로 반환해주세요.
         아래 pass를 지워주시고 코드를 작성해주시면 됩니다. 
         """
-        pass
+        return self.items
 
     
