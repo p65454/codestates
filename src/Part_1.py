@@ -46,8 +46,11 @@ def oneto100(num):
                 100
             출력값:
                 5050
-    """
-    pass # 문제푸실 때 pass를 지워주세요 
+                """
+    if num <= 1: # Base Case
+        return num
+    else:
+        return num + oneto100(num-1)
 
 
 @counter
@@ -65,4 +68,10 @@ def recursion_advanced(str_data):
             input : 'Codestates'
             output: 'setatsedoC'
     """
-    pass # 문제푸실 때 pass를 지워주세요 
+    
+    if len(str_data) == 1:
+        return str_data
+    else:
+        print(str_data)
+
+        return recursion_advanced(str_data[1:]) + str_data[0]

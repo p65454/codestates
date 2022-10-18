@@ -21,7 +21,9 @@ class node:
         # 문제 1
         bst에서 사용할 수 있는 node 클래스를 작성해주세요
         """
-        pass
+        self.value = value
+        self.left = None
+        self.right = None
 
 
 class binary_search_tree:
@@ -30,7 +32,7 @@ class binary_search_tree:
         문제 2.
         bst의 생성자 메소드를 작성해주세요
         """
-        pass
+        self.head = head
 
 
     def insert_node(self, value):
@@ -38,7 +40,22 @@ class binary_search_tree:
         문제 3.
         bst의 동작에 맞게 값을 집어넣을 수 있도록 메소드를 작성해주세요
         """
-        pass
+        self.base_node = self.head
+        while True:
+            if value < self.base_node.value:
+                if self.base_node.left != None:
+                    self.base_node = self.base_node.left
+                else:
+                    self.base_node.left = node(value)
+                    break
+
+            else:
+                if self.base_node.right != None:
+                    self.base_node = self.base_node.right
+                else:
+                    self.base_node.right = node(value)
+                    break
+
         
 
     def search_node(self, value):
@@ -46,7 +63,23 @@ class binary_search_tree:
         문제 4.
         bst 내부에 value값이 있는지 True / False값을 반환하는 메소드를 작성해주세요
         """
-        pass
+        self.base_node = self.head
+
+        while self.base_node:
+            if self.base_node.value == value:
+                return True
+            elif value < self.base_node.value:
+                if self.base_node.left:
+                    self.base_node = self.base_node.left
+                else:
+                    return False
+            else:
+                if self.base_node.right:
+                    self.base_node = self.base_node.right
+                else:
+                    return False
+        return False
+
 
 
 if __name__ == "__main__":
