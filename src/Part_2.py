@@ -41,7 +41,12 @@ def print_to_zero_pos(n, result_list):
 			print_to_zero_pos(pos, result_list)
 			print(result_list) # [5,4,3,2,1,0]
 	"""
-	pass #### 문제 풀 때 pass를 지워주세요 #####
+	
+	result_list.append(n)
+	if n==0:
+		return result_list
+	else:
+		return print_to_zero_pos(n-1, result_list)
 
 
 @counter
@@ -59,5 +64,9 @@ def print_to_zero_neg(n, result_list):
 			print_to_zero_neg(neg, result_list_neg)
 			print(result_list_neg) #[-3,-2,-1,0]
 	"""
-	pass #### 문제 풀 때 pass를 지워주세요 #####
+	result_list.append(n)
+	if n == 0:
+		return result_list
+	else:
+		return print_to_zero_neg(n+1, result_list)
  
