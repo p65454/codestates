@@ -33,20 +33,23 @@ Bare Minimum Requirements
 class hash_table:
     # 기능2) 키에 따른 값을 담아주는 함수
     def __init__(self):
-        self.table = pass
+        self.table = [[] for _ in range(10)]
     
 
     # 기능3) name에 따라 특정값을 반환해주는 해시함수
     def hash_function(self, name):
-        table_sum = 0
-        pass
+        table_sum = sum([i for i in name.encode()])
+        return table_sum % 7
+        
 
 
     # 기능4) name에 따라 num이 매칭되도록 설정하는 함수
     def hash_put(self, name, num):
-        pass
+        key = self.hash_function(name) 
+        self.table[key] = num
 
 
     # 기능5) name에 따라 매칭되는 num을 찾아주는 함수
     def hash_search(self, name):
-        pass 
+        key = self.hash_function(name) 
+        return self.table[key]
