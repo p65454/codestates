@@ -29,8 +29,9 @@ Bare Minimum Requirements
 def search_route(connection_info, start_node, end_node, route=[]):
     route = route + [start_node]
     if start_node == end_node:
-        ### 소스코드 작성 ###
+        return route
     if not connection_info.__contains__(start_node):
-        ### 소스코드 작성 ###
+        return None
     for node in connection_info[start_node]:
-        ### 소스코드 작성 ###
+        if node not in route:
+            return search_route(connection_info, node, end_node, route)
