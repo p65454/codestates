@@ -22,9 +22,23 @@ BFS와 DFS에 대해서 파악해봅시다
 """
 
 def dfs_recur(node, dfs_graph, dfs_list=[]):
-    pass
+    dfs_list.append(node)
+
+    for recur in dfs_graph[node]:
+        if recur not in dfs_list:
+            dfs_recur(recur, dfs_graph, dfs_list)
+    return dfs_list
 
 
 def bfs_queue(start_node, bfs_graph):
-    pass
+    queue, visited = [], []
+    queue.append(start_node)
+
+    while queue:
+        node = queue.pop(0)
+
+        if node not in visited:
+            visited.append(node)
+            queue.extend(bfs_graph[node])
+    return visited
 
