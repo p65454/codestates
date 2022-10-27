@@ -21,4 +21,17 @@ Greedy를 활용하면서 알고리즘의 흐름을 이해해보자.
 def changes(price):
     change = 1000 - price
     coin_list = [700, 400, 300, 100, 50, 10]
-    pass
+    result = {}
+
+    for coin in coin_list:
+        count = 0
+
+        if coin > change:
+            continue
+
+        while change >= coin: 
+            change -= coin
+            count += 1
+        result[coin] = count
+
+    return result
